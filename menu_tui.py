@@ -195,6 +195,8 @@ class MenuTUI(App):
         self.load_error: Optional[str] = None
         self.last_status: str = "Ready."
         self.initial_category = initial_category
+        self._filter_text: str = ""
+        self._all_nodes: list = []  # Store all leaf nodes for filtering
 
     def compose(self) -> ComposeResult:
         yield Header()
@@ -208,15 +210,66 @@ class MenuTUI(App):
         self.reload_menu()
 
     def action_reload(self) -> None:
+        """Refresh the menu data from bash."""
         self.reload_menu()
 
     def action_focus_filter(self) -> None:
-        # Simple approach: pressing "/" jumps focus to the tree and lets the
-        # user type-to-search via Textual's built-in tree navigation.
-        self.query_one("#menu-tree", Tree).focus()
+        """Enter filter mode - focus tree and show prompt."""
+        tree = self.query_one("#menu-tree", Tree)
+        tree.focus()
+        self.set_status("Filter: type to search... (Esc to clear)")
 
     def action_clear_filter(self) -> None:
+        """Clear filter and show all nodes."""
+        tree = self.query_one("#menu-tree", Tree)
+        self._filter_text = ""
+        self._show_all_nodes(tree.root)
         self.set_status("Ready.")
+
+    def _show_all_nodes(self, node: TreeNode) -> None:
+        """Recursively show all nodes."""
+        node.expand()
+        for child in node.children:
+            self._show_all_nodes(child)
+
+    def on_key(self, event) -> None:
+        """Handle typing in filter mode."""
+        tree = self.query_one("#menu-tree", Tree)
+        if tree.has_focus and event.key not in ("q", "enter", "escape", "up", "down", "left", "right", "tab", "shift+tab"):
+            if event.key == "backspace":
+                self._filter_text = self._filter_text[:-1]
+            elif len(event.key) == 1:
+                self._filter_text += event.key
+            self._apply_filter()
+            event.prevent_default()
+
+    def _apply_filter(self) -> None:
+        """Apply filter text to tree nodes."""
+        tree = self.query_one("#menu-tree", Tree)
+        if self._filter_text:
+            self._filter_nodes(tree.root, self._filter_text.lower())
+        else:
+            self._show_all_nodes(tree.root)
+        self.set_status(f"Filter: {self._filter_text}")
+
+    def _filter_nodes(self, node: TreeNode, filter_text: str) -> bool:
+        """Recursively filter nodes. Returns True if node or any child matches."""
+        label = str(node._label).lower()
+        matches = filter_text in label
+        
+        # Check children
+        child_matches = False
+        for child in node.children:
+            if self._filter_nodes(child, filter_text):
+                child_matches = True
+        
+        # Show/hide based on matches
+        if matches or child_matches:
+            node.expand()
+            return True
+        else:
+            node.collapse()
+            return False
 
     def action_noop(self) -> None:
         pass
