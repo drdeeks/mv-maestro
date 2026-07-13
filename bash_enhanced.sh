@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # =============================================================================
-# Enhanced System Management — Bash Profile
-# Ported from EnhancedSystemManagement PowerShell suite (Chitus Tech style)
+# MV Maestro — Bash Profile
+# MV Maestro — Independent bash profile system
 # Source from ~/.bashrc: source /path/to/bash_enhanced.sh
 # =============================================================================
 
@@ -42,8 +42,11 @@ _esm_banner() {
     
     echo ""
     echo -e "${BOLD}${BLUE}  ╔═══════════════════════════════════════════════╗${NC}"
-    echo -e "${BOLD}${BLUE}  ║     MV Maestro — System Identity            ║${NC}"
-    echo -e "${BOLD}${BLUE}  ║         made with love by @drdeeks          ║${NC}"
+    echo -e "${BOLD}${BLUE}  ║     MV Maestro                                ║${NC}"
+    echo -e "${BOLD}${BLUE}  ║  A steady hand that turns chaos               ║${NC}"
+    echo -e "${BOLD}${BLUE}  ║  back into a well orchestrated symphony.      ║${NC}"
+    echo -e "${BOLD}${BLUE}  ║                                               ║${NC}"
+    echo -e "${BOLD}${BLUE}  ║  made with love by @drdeeks                   ║${NC}"
     echo -e "${BOLD}${BLUE}  ╚═══════════════════════════════════════════════╝${NC}"
     echo -e "  ${DIM}$(date '+%A, %B %d %Y  %H:%M') • ${tz}${NC}"
     echo ""
@@ -60,7 +63,7 @@ _esm_banner() {
     echo -e "  ${CYAN}◉ RAM:${NC} ${mem_used}M / ${mem_total}M ${DIM}(${mem_pct}%)${NC}   ${CYAN}⚡ Load:${NC} ${cpu_load}   ${CYAN}💿 Disk:${NC} ${disk_use}"
     echo -e "  ${CYAN}⏱️ Uptime:${NC} ${uptime_str}"
     echo ""
-    echo -e "  ${DIM}Type ${NC}${CYAN}mvhelp${NC}${DIM} for commands, ${NC}${CYAN}dm${NC}${DIM} for menu.${NC}"
+    echo -e "  ${DIM}Type mvhelp for commands, mm for menu..${NC}"
     echo ""
 }
 
@@ -537,7 +540,7 @@ exportinfo() {
     local out_file="$out_dir/system_info_$(date '+%Y%m%d_%H%M%S').txt"
 
     cat > "$out_file" <<'EXPEOF'
-Enhanced System Management — System Info Export
+MV Maestro — System Info Export
 Generated: $(date)
 ==================================================
 
@@ -855,7 +858,7 @@ EOF
 }
 
 # ─────────────────────────────────────────────────────────────────────────────
-# PROMPT (minimal but informative, Chitus Tech style)
+# PROMPT (minimal but informative, MV Maestro style)
 # ─────────────────────────────────────────────────────────────────────────────
 _git_branch() {
     git branch 2>/dev/null | awk '/\*/{print " ("$2")"}'

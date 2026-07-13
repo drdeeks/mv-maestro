@@ -33,8 +33,8 @@ from textual.screen import ModalScreen
 from textual.widgets import Button, Footer, Header, Input, Label, Static, Tree
 from textual.widgets.tree import TreeNode
 
-PROFILE_DIR = Path(os.environ.get("_MENU_TUI_PROFILE_DIR", str(Path.home() / ".bash_profile_enhanced")))
-BASH_ENHANCED = PROFILE_DIR / "bash_enhanced.sh"
+PROFILE_DIR = Path(os.environ.get("_MENU_TUI_PROFILE_DIR", str(Path.home() / "projects" / "MV-Maestro")))
+MV_MAESTRO = PROFILE_DIR / "bash_enhanced.sh"
 DOCKER_TUI = PROFILE_DIR / "docker_tui.py"
 UNIT_SEP = "\x1f"
 
@@ -69,10 +69,10 @@ def load_menu_data(timeout: float = 15.0) -> tuple[list[MenuCategory], Optional[
     human-readable message (bash_enhanced.sh missing, dump function missing,
     timeout, etc).
     """
-    if not BASH_ENHANCED.exists():
-        return [], f"Not found: {BASH_ENHANCED}"
+    if not MV_MAESTRO.exists():
+        return [], f"Not found: {MV_MAESTRO}"
 
-    script = f'source "{BASH_ENHANCED}" >/dev/null 2>&1; _menu_dump_data'
+    script = f'source "{MV_MAESTRO}" >/dev/null 2>&1; _menu_dump_data'
     try:
         result = subprocess.run(
             ["bash", "-c", script],
@@ -168,7 +168,7 @@ class InputDialog(ModalScreen[Optional[str]]):
 class MenuTUI(App):
     """Unified navigation menu for the enhanced bash profile."""
 
-    TITLE = "Enhanced Bash — Unified Navigation Menu"
+    TITLE = "MV Maestro — A steady hand that turns chaos back into a well orchestrated symphony."
 
     CSS = """
     Screen { layout: vertical; }
@@ -301,7 +301,7 @@ class MenuTUI(App):
             cmd_line = item.cmd if not args.strip() else f"{item.cmd} {args.strip()}"
             shell_cmd = (
                 f'clear; printf "\\033[1;36m\\$ %s\\033[0m\\n\\n" {shlex.quote(cmd_line)}; '
-                f'source {shlex.quote(str(BASH_ENHANCED))} >/dev/null 2>&1; '
+                f'source {shlex.quote(str(MV_MAESTRO))} >/dev/null 2>&1; '
                 f'{cmd_line}; '
                 f'ec=$?; echo; '
                 f'if [ $ec -eq 0 ]; then printf "\\033[0;32m\\xe2\\x9c\\x93 exited 0\\033[0m\\n"; '

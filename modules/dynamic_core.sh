@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # ═════════════════════════════════════════════════════════════════════════════════
 # Dynamic Core Module — Auto-adapting, tool-aware, zero-config utilities
-# Source from ~/.bashrc:  source ~/.bash_profile_enhanced/modules/dynamic_core.sh
+# Source from ~/.bashrc:  source ~/MV-Maestro/modules/dynamic_core.sh
 # ════════════════════════════════════════════════════════════════════════════════
 
 # ─────────────────────────────────────────────────────────────────────────────
@@ -792,7 +792,7 @@ dynhelp() {
     # ────────────────────────────────────────────────────────────────────────
     echo -e "  ${BOLD}💡 Tips:${NC}"
     echo -e "    • Type ${CYAN}dm${NC} for interactive menu"
-    echo -e "    • Type ${CYAN}syshelp${NC} for bash profile help"
+    echo -e "    • Type ${CYAN}mvhelp${NC} for MV Maestro help"
     echo -e "    • Set ${CYAN}CF_API_TOKEN${NC} for Cloudflare commands"
     echo -e "    • Set ${CYAN}AGE_PASSPHRASE${NC} for GPG encryption"
 }

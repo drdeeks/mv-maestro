@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # ═══════════════════════════════════════════════════════════════════════════════
 # Unified Navigation Menu — Consistent interface for all enhanced bash features
-# Source from ~/.bashrc:  source ~/.bash_profile_enhanced/modules/dynamic_menu.sh
+# Source from ~/.bashrc:  source ~/MV-Maestro/modules/dynamic_menu.sh
 # ═══════════════════════════════════════════════════════════════════════════════
 
 # ─────────────────────────────────────────────────────────────────────────────
@@ -363,7 +363,7 @@ _menu_dump_data() {
 _menu_render_header() {
     clear
     echo -e "${BOLD}${CYAN}═══════════════════════════════════════════════════════════════════════${NC}"
-    echo -e "${BOLD}${CYAN}         Enhanced Bash — Unified Navigation Menu                    ${NC}"
+    echo -e "${BOLD}${CYAN}         MV Maestro — Unified Navigation Menu                    ${NC}"
     echo -e "${BOLD}${CYAN}═══════════════════════════════════════════════════════════════════════${NC}"
     echo ""
     echo -e "  ${DIM}Host: $(hostname)  •  User: $USER  •  $(date '+%a %b %d %H:%M')${NC}"
@@ -414,7 +414,7 @@ _menu_show_main() {
                         7) echo "Edit config, dotfiles, themes, keybindings, packages"
                         8) echo "Live monitoring, logs, CPU/mem/disk/net/GPU, benchmarks"
                         9) echo "Calculator, calendar, encoding, random, units, web, notes"
-                        *) echo "Enhanced Bash Navigation Menu — Consistent interface for all features"
+                        *) echo "MV Maestro Navigation Menu — Consistent interface for all features"
                     esac
                 ' \
                 --preview-window "up:3:wrap" \
@@ -639,7 +639,7 @@ SEARCH TIPS:
   • Use $ to match end (e.g., "clean$")
 
 CUSTOMIZATION:
-  • Add functions to ~/.bash_profile_enhanced/custom.sh
+  • Add functions to ~/MV-Maestro/custom.sh
   • Modify MENU_* arrays in this file
   • Set DYNAMIC_MENU_FAVORITES for quick access
 
@@ -737,16 +737,16 @@ _menu_show_category_by_num() {
 }
 
 # Aliases for quick access
-alias dm='dmenu'
-alias dms='dmenu-sys'
-alias dmd='dmenu-dev'
-alias dmc='dmenu-containers'
-alias dmg='dmenu-git'
-alias dmsec='dmenu-security'
-alias dma='dmenu-archive'
-alias dmc2='dmenu-config'
-alias dmm='dmenu-monitor'
-alias dmu='dmenu-utils'
+alias mm='dmenu'
+alias mms='dmenu-sys'
+alias mmd='dmenu-dev'
+alias mmc='dmenu-containers'
+alias mmg='dmenu-git'
+alias mmsec='dmenu-security'
+alias mma='dmenu-archive'
+alias mmc2='dmenu-config'
+alias mmm='dmenu-monitor'
+alias mmu='dmenu-utils'
 
 # ─────────────────────────────────────────────────────────────────────────────
 # COMPLETION (for menu commands)
@@ -757,9 +757,8 @@ _dmenu_completions() {
     local commands="dmenu dm dms dmd dmc dmg dmsec dma dmc2 dmm dmu"
     COMPREPLY=( $(compgen -W "$commands" -- "$cur") )
 }
-complete -F _dmenu_completions dmenu dm dms dmd dmc dmg dmsec dma dmc2 dmm dmu
+complete -F _dmenu_completions dmenu mm mms mmd mmc mmg mmsec mma mmc2 mmm mmu
 
 # ─────────────────────────────────────────────────────────────────────────────
 # INIT MESSAGE (single consolidated message for all dynamic modules)
 # ─────────────────────────────────────────────────────────────────────────────
-[[ $- == *i* ]] && _info "Dynamic modules loaded. Type ${CYAN}mvhelp${NC} or ${CYAN}dynhelp${NC} for help, ${CYAN}dm${NC} for menu."

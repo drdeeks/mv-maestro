@@ -42,19 +42,19 @@ A fully functional, modular bash enhancement system with comprehensive documenta
 
 ### Option 1: Automated Install
 ```bash
-cd ~/projects/bash-enhanced-system
-./install.sh ~/bash-enhanced-system
+cd ~/projects/MV-Maestro
+./install.sh ~/MV-Maestro
 source ~/.bashrc
 ```
 
 ### Option 2: Manual Setup
 ```bash
 # Copy to desired location
-cp -r ~/projects/bash-enhanced-system ~/bash-enhanced-system
+cp -r ~/projects/MV-Maestro ~/MV-Maestro
 
 # Add to ~/.bashrc (append):
-export BASH_ENHANCED_HOME="$HOME/bash-enhanced-system"
-source "$HOME/bash-enhanced-system/bash_enhanced.sh"
+export MV_MAESTRO_HOME="$HOME/MV-Maestro"
+source "$HOME/MV-Maestro/bash_enhanced.sh"
 
 # Reload shell
 source ~/.bashrc
@@ -210,7 +210,7 @@ command-name --help
 ## 🧪 Running Tests
 
 ```bash
-cd ~/projects/bash-enhanced-system
+cd ~/projects/MV-Maestro
 
 # Full validation
 ./tests/validate_menu.sh
@@ -230,13 +230,13 @@ python3 -m py_compile menu_tui.py
 
 ```bash
 # User documentation
-less ~/projects/bash-enhanced-system/docs/README.md
+less ~/projects/MV-Maestro/docs/README.md
 
 # Developer guidelines
-less ~/projects/bash-enhanced-system/docs/AGENTS.md
+less ~/projects/MV-Maestro/docs/AGENTS.md
 
 # Quick reference
-less ~/projects/bash-enhanced-system/docs/QUICKREF.md
+less ~/projects/MV-Maestro/docs/QUICKREF.md
 
 # Command help (after installation)
 command-name --help
@@ -267,7 +267,7 @@ syshelp
 
 1. **Install the system:**
    ```bash
-   cd ~/projects/bash-enhanced-system
+   cd ~/projects/MV-Maestro
    ./install.sh
    ```
 
@@ -302,4 +302,4 @@ syshelp
 
 **Package Version:** 2.0.0  
 **Created:** October 2024  
-**Location:** `~/projects/bash-enhanced-system/`
+**Location:** `~/projects/MV-Maestro/`

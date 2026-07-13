@@ -7,7 +7,7 @@
 
 set -euo pipefail
 
-PROFILE="/home/drdeek/.bash_profile_enhanced/bash_enhanced.sh"
+PROFILE="/home/drdeek/projects/MV-Maestro/bash_enhanced.sh"
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 # Colors
@@ -48,7 +48,7 @@ log_skip() { echo -e "${DIM}[SKIP]${NC} $*"; SKIPPED=$((SKIPPED + 1)); }
 
 echo ""
 echo "╔═══════════════════════════════════════════════════════════╗"
-echo "║       bash-enhanced Menu Validation Suite                ║"
+echo "║       MV Maestro Menu Validation Suite                ║"
 echo "╚═══════════════════════════════════════════════════════════╝"
 echo ""
 
@@ -224,14 +224,14 @@ done
 log_info "Phase 4: Verifying Textual TUI integration..."
 
 # Check menu_tui.py exists
-if [[ -f "/home/drdeek/.bash_profile_enhanced/menu_tui.py" ]]; then
+if [[ -f "/home/drdeek/projects/MV-Maestro/menu_tui.py" ]]; then
     log_success "menu_tui.py exists"
 else
     log_fail "menu_tui.py missing"
 fi
 
 # Check Python syntax
-if python3 -m py_compile /home/drdeek/.bash_profile_enhanced/menu_tui.py 2>/dev/null; then
+if python3 -m py_compile /home/drdeek/projects/MV-Maestro/menu_tui.py 2>/dev/null; then
     log_success "menu_tui.py syntax valid"
 else
     log_fail "menu_tui.py has syntax errors"
@@ -240,7 +240,7 @@ fi
 # Check load_menu_data works
 if python3 -c "
 import sys
-sys.path.insert(0, '/home/drdeek/.bash_profile_enhanced')
+sys.path.insert(0, '/home/drdeek/projects/MV-Maestro')
 from menu_tui import load_menu_data
 cats, err = load_menu_data()
 if err:

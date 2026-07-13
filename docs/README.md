@@ -384,7 +384,7 @@ This system is provided as-is for personal and professional use. Modify and dist
 
 Built with inspiration from:
 - EnhancedSystemManagement PowerShell suite
-- Chitus Tech CLI patterns
+- MV Maestro design patterns
 - Textual TUI framework
 - fzf fuzzy finder
 

@@ -2,7 +2,7 @@
 # =============================================================================
 # Additional Menu Command Implementations
 # These fill in the gaps for menu items that were previously unimplemented
-# Source from: ~/.bash_profile_enhanced/modules/dynamic_ext.sh (appended)
+# Source from: ~/MV-Maestro/modules/dynamic_ext.sh (appended)
 # =============================================================================
 
 # ─────────────────────────────────────────────────────────────────────────────
@@ -309,7 +309,7 @@ edit-config() {
     
     echo "Quick config editor:"
     echo "  1) ~/.bashrc"
-    echo "  2) ~/.bash_profile_enhanced/bash_enhanced.sh"
+    echo "  2) ~/MV-Maestro/bash_enhanced.sh"
     echo "  3) ~/.config"
     echo "  4) ~/.ssh/config"
     echo "  5) Custom file"
@@ -318,7 +318,7 @@ edit-config() {
     
     case "$opt" in
         1) $editor ~/.bashrc ;;
-        2) $editor ~/.bash_profile_enhanced/bash_enhanced.sh ;;
+        2) $editor ~/MV-Maestro/bash_enhanced.sh ;;
         3) $editor ~/.config ;;
         4) $editor ~/.ssh/config ;;
         5) read -rp "Enter file path: " fpath && $editor "$fpath" ;;
@@ -334,7 +334,7 @@ dotfiles() {
         backup|b)
             echo "Backing up dotfiles to $dotfiles_dir..."
             mkdir -p "$dotfiles_dir"
-            cp -n ~/.bashrc ~/.bash_profile_enhanced "$dotfiles_dir/" 2>/dev/null || true
+            cp -n ~/.bashrc ~/MV-Maestro "$dotfiles_dir/" 2>/dev/null || true
             echo "✓ Backup complete"
             ;;
         sync|s)
@@ -417,7 +417,7 @@ sync-config() {
         return 1
     fi
     
-    local config_dir="$HOME/.bash_profile_enhanced"
+    local config_dir="$HOME/MV-Maestro"
     echo "Syncing config to $remote..."
     
     # Initialize git repo if needed

@@ -2,7 +2,7 @@
 # =============================================================================
 # SSH Profile Setup Wizard
 # Interactive guided setup for SSH host profiles with optional automation
-# Source from: ~/.bashrc or ~/.bash_profile_enhanced/bash_enhanced.sh
+# Source from: ~/.bashrc or ~/MV-Maestro/bash_enhanced.sh
 # Usage after sourcing: ssh-profile-setup [hostname] [interactive|auto]
 # =============================================================================
 # set -euo pipefail  # Disabled for interactive sourcing

@@ -612,7 +612,7 @@ After any change:
 bash --norc --noprofile -i
 
 # 2. Load enhanced profile
-source ~/.bash_profile_enhanced/bash_enhanced.sh
+source ~/MV-Maestro/bash_enhanced.sh
 
 # 3. Test affected commands
 affected-command --help
@@ -769,7 +769,7 @@ bash --version
 uname -a
 
 # Enhanced profile status
-source ~/.bash_profile_enhanced/bash_enhanced.sh
+source ~/MV-Maestro/bash_enhanced.sh
 dynhelp | head -5
 
 # Problem description
