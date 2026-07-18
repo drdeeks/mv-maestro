@@ -1,7 +1,5 @@
 # MV Maestro
 
-[![DrDeeks Project](https://img.shields.io/badge/DrDeeks%20Project-171718?style=flat-square&labelColor=b84d32)](https://github.com/drdeeks)
-
 A modular Bash profile enhancement system that turns a Linux terminal into a practical development and system-management console, with 68+ documented commands, an interactive Textual menu, SSH/Tailscale helpers, and dependency-aware fallbacks.
 
 ## Quick start
