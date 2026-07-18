@@ -1,5 +1,7 @@
 # MV Maestro
 
+[![Bash](https://img.shields.io/badge/Bash-modular%20CLI-4EAA25?logo=gnubash&logoColor=white)](bash_enhanced.sh) [![Python](https://img.shields.io/badge/Python-TUI-3776AB?logo=python&logoColor=white)](menu_tui.py) [![Textual](https://img.shields.io/badge/Textual-optional%20UI-5C2D91)](textual-tui-skill/)
+
 A modular Bash profile enhancement system that turns a Linux terminal into a practical development and system-management console, with 68+ documented commands, an interactive Textual menu, SSH/Tailscale helpers, and dependency-aware fallbacks.
 
 ## Quick start
